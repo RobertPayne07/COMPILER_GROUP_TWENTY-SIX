@@ -1,0 +1,7 @@
+// Sample with intentional lexical errors to test error recovery
+int valid = 10;
+@
+$
+int bad_identifier_# = 20;
+string unterminated = "missing closing quote;
+/* unterminated block comment
