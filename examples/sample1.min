@@ -1,0 +1,27 @@
+// Sample 1: Standard Mini-Language Program
+// Computes factorial and displays result
+
+/* Function to compute factorial */
+int factorial(int n) {
+    if (n <= 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+void main() {
+    int num = 5;
+    float threshold = 100.5;
+    string msg = "Factorial computation complete!\n";
+    bool isFinished = false;
+
+    int result = factorial(num);
+
+    if (result > 0 && result < threshold) {
+        print(result);
+    } else {
+        print(msg);
+    }
+
+    isFinished = true;
+}
