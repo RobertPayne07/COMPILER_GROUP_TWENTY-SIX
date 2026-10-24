@@ -52,9 +52,9 @@ bin\test_scanner.exe
 
 Example output:
 ```text
-========================================================
+
                   SCANNER OUTPUT REPORT                 
-========================================================
+
 Line  Col   Token Type          Lexeme
 --------------------------------------------------------
 5     1     KEYWORD_INT         int
@@ -65,7 +65,7 @@ Line  Col   Token Type          Lexeme
 5     20    DELIM_RPAREN        )
 5     22    DELIM_LBRACE        {
 ...
-========================================================
+
 Total Tokens: 84
 Scanning completed successfully with 0 errors.
 ```
