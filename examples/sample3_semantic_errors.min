@@ -1,0 +1,18 @@
+// Sample with intentional semantic errors to test diagnostic reporting
+int count = 10;
+int count = 20; // Redeclaration in same scope
+
+int add(int a, int b) {
+    return a + b;
+}
+
+void main() {
+    int x = 5;
+    x = "hello"; // Type mismatch: assigning string to int
+
+    y = 50; // Undeclared variable 'y'
+
+    add(1); // Incorrect argument count (expects 2, got 1)
+
+    break; // Break statement outside loop
+}
