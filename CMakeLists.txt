@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(CompilerGroupOne VERSION 2.0.0 LANGUAGES CXX)
+project(CompilerGroupOne VERSION 3.0.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -31,13 +31,27 @@ set(PARSER_SOURCES
     src/ASTPrinter.cpp
 )
 
-set(ALL_SOURCES ${SCANNER_SOURCES} ${PARSER_SOURCES})
+# Phase 3 Sources
+set(SEMANTIC_IR_SOURCES
+    src/SymbolTable.cpp
+    src/SemanticErrorHandler.cpp
+    src/TypeCheckerExpr.cpp
+    src/SemanticValidatorStmt.cpp
+    src/IRInstruction.cpp
+    src/IRGenExpr.cpp
+    src/IRGenControlFlow.cpp
+    src/IRProgram.cpp
+)
+
+set(ALL_SOURCES ${SCANNER_SOURCES} ${PARSER_SOURCES} ${SEMANTIC_IR_SOURCES})
 
 # Executables
 add_executable(compiler src/main.cpp ${ALL_SOURCES})
 add_executable(scanner src/main.cpp ${ALL_SOURCES})
 add_executable(parser src/main.cpp ${ALL_SOURCES})
+add_executable(ir src/main.cpp ${ALL_SOURCES})
 
 # Test Suites
 add_executable(test_scanner tests/test_scanner.cpp ${SCANNER_SOURCES})
-add_executable(test_parser tests/test_parser.cpp ${ALL_SOURCES})
+add_executable(test_parser tests/test_parser.cpp ${SCANNER_SOURCES} ${PARSER_SOURCES})
+add_executable(test_ir tests/test_ir.cpp ${ALL_SOURCES})
