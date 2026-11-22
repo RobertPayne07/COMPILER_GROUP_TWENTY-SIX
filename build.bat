@@ -1,12 +1,12 @@
 @echo off
 echo ========================================================
-echo Building Compiler Project (Phase 1 Scanner + Phase 2 Parser)
+echo Building Compiler Project (Phase 1, Phase 2, and Phase 3)
 echo ========================================================
 if not exist bin mkdir bin
 
-set SRCS=src/Token.cpp src/SourceBuffer.cpp src/ErrorHandler.cpp src/CommentFilter.cpp src/IdentifierScanner.cpp src/LiteralScanner.cpp src/OperatorScanner.cpp src/Scanner.cpp src/AST.cpp src/ParseErrorHandler.cpp src/ParserCore.cpp src/PrimaryExprParser.cpp src/BinaryExprParser.cpp src/ControlFlowParser.cpp src/DeclarationParser.cpp src/Parser.cpp src/ASTPrinter.cpp
+set SRCS=src/Token.cpp src/SourceBuffer.cpp src/ErrorHandler.cpp src/CommentFilter.cpp src/IdentifierScanner.cpp src/LiteralScanner.cpp src/OperatorScanner.cpp src/Scanner.cpp src/AST.cpp src/ParseErrorHandler.cpp src/ParserCore.cpp src/PrimaryExprParser.cpp src/BinaryExprParser.cpp src/ControlFlowParser.cpp src/DeclarationParser.cpp src/Parser.cpp src/ASTPrinter.cpp src/SymbolTable.cpp src/SemanticErrorHandler.cpp src/TypeCheckerExpr.cpp src/SemanticValidatorStmt.cpp src/IRInstruction.cpp src/IRGenExpr.cpp src/IRGenControlFlow.cpp src/IRProgram.cpp
 
-echo Compiling compiler binary (bin/compiler.exe and bin/scanner.exe)...
+echo Compiling compiler binary (bin/compiler.exe)...
 g++ -std=c++17 -Wall -Iinclude %SRCS% src/main.cpp -o bin/compiler.exe
 if %ERRORLEVEL% NEQ 0 (
     echo [ERROR] Compiler build failed!
@@ -14,6 +14,7 @@ if %ERRORLEVEL% NEQ 0 (
 )
 copy bin\compiler.exe bin\scanner.exe >nul 2>&1
 copy bin\compiler.exe bin\parser.exe >nul 2>&1
+copy bin\compiler.exe bin\ir.exe >nul 2>&1
 
 echo Compiling Phase 1 Scanner unit tests (bin/test_scanner.exe)...
 g++ -std=c++17 -Wall -Iinclude src/Token.cpp src/SourceBuffer.cpp src/ErrorHandler.cpp src/CommentFilter.cpp src/IdentifierScanner.cpp src/LiteralScanner.cpp src/OperatorScanner.cpp src/Scanner.cpp tests/test_scanner.cpp -o bin/test_scanner.exe
@@ -23,12 +24,19 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 echo Compiling Phase 2 Parser unit tests (bin/test_parser.exe)...
-g++ -std=c++17 -Wall -Iinclude %SRCS% tests/test_parser.cpp -o bin/test_parser.exe
+g++ -std=c++17 -Wall -Iinclude src/Token.cpp src/SourceBuffer.cpp src/ErrorHandler.cpp src/CommentFilter.cpp src/IdentifierScanner.cpp src/LiteralScanner.cpp src/OperatorScanner.cpp src/Scanner.cpp src/AST.cpp src/ParseErrorHandler.cpp src/ParserCore.cpp src/PrimaryExprParser.cpp src/BinaryExprParser.cpp src/ControlFlowParser.cpp src/DeclarationParser.cpp src/Parser.cpp src/ASTPrinter.cpp tests/test_parser.cpp -o bin/test_parser.exe
 if %ERRORLEVEL% NEQ 0 (
     echo [ERROR] test_parser build failed!
     exit /b 1
 )
 
+echo Compiling Phase 3 Semantics & IR unit tests (bin/test_ir.exe)...
+g++ -std=c++17 -Wall -Iinclude %SRCS% tests/test_ir.cpp -o bin/test_ir.exe
+if %ERRORLEVEL% NEQ 0 (
+    echo [ERROR] test_ir build failed!
+    exit /b 1
+)
+
 echo [SUCCESS] All binaries and test suites built successfully into bin/
-echo Run: bin\compiler.exe examples\sample2_parser.min
-echo Test: bin\test_parser.exe
+echo Run: bin\compiler.exe examples\sample3_ir.min
+echo Test: bin\test_ir.exe
