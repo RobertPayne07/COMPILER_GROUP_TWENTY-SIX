@@ -17,18 +17,18 @@ This repository contains the full 5-phase compiler implementation for the class 
 
 ## Team Contributions & Commit Ownership (Phase 3: Semantic Analysis / IR)
 
-| Index Number | Member Name | Branch | Assigned Component | Key Files |
+| Index Number(Github Usernames) | Member Name | Branch | Assigned Component | Key Files |
 | :--- | :--- | :--- | :--- | :--- |
-| **PS/CSC/23/0302** | Payne Vincent Robert *(Repo Admin)* | `phase3/0302-cli-build` | CLI Integration & Multi-Target Build | `src/main.cpp`, `CMakeLists.txt`, `Makefile`, `build.bat` |
-| **PS/CSC/23/0291** | Ernest Amoako Agyemang | `phase3/0291-symbol-table` | Symbol Table & Scoping Architecture | `include/SymbolTable.h`, `src/SymbolTable.cpp` |
-| **PS/CSC/23/0292** | Yassin Alhassan | `phase3/0292-semantic-errors`| Semantic Diagnostics & Type Rules | `include/SemanticErrorHandler.h`, `src/SemanticErrorHandler.cpp` |
-| **PS/CSC/23/0293** | Mohammed Abdul Hamid | `phase3/0293-type-checker` | Expression Type Checking & Validation | `include/TypeCheckerExpr.h`, `src/TypeCheckerExpr.cpp` |
-| **PS/CSC/23/0294** | Jeremiah Adongo Ayinbila | `phase3/0294-stmt-validator` | Statement & Control Flow Semantic Validation | `include/SemanticValidatorStmt.h`, `src/SemanticValidatorStmt.cpp` |
-| **PS/CSC/23/0295** | Judah Fiifi Tawiah | `phase3/0295-ir-model` | Three-Address Code Architecture & Temps | `include/IRInstruction.h`, `src/IRInstruction.cpp` |
-| **PS/CSC/23/0297** | Isaac Seyram Benson | `phase3/0297-ir-expr` | Expression & Assignment IR Lowering | `include/IRGenExpr.h`, `src/IRGenExpr.cpp` |
-| **PS/CSC/23/0299** | Kweku Andoh | `phase3/0299-ir-control-flow`| Control Flow, Loops & Jump IR Lowering | `include/IRGenControlFlow.h`, `src/IRGenControlFlow.cpp` |
-| **PS/CSC/23/0301** | Student 0301 | `phase3/0301-ir-coordinator` | IR Program Coordinator & Analyzer Pipeline | `include/IRProgram.h`, `src/IRProgram.cpp` |
-| **PS/CSC/23/0303** | Jonathan Armah Mensah | `phase3/0303-tests-docs` | Phase 3 Test Suite, Samples & Docs | `tests/test_ir.cpp`, `examples/sample3_ir.min`, `examples/sample3_semantic_errors.min` |
+| **PS/CSC/23/0302**(RobertPayne07) | Payne Vincent Robert *(Repo Admin)* | `phase3/0302-cli-build` | CLI Integration & Multi-Target Build | `src/main.cpp`, `CMakeLists.txt`, `Makefile`, `build.bat` |
+| **PS/CSC/23/0291**(trapforever) | Ernest Amoako Agyemang | `phase3/0291-symbol-table` | Symbol Table & Scoping Architecture | `include/SymbolTable.h`, `src/SymbolTable.cpp` |
+| **PS/CSC/23/0292**(yassinalhassan-pixel) | Yassin Alhassan | `phase3/0292-semantic-errors`| Semantic Diagnostics & Type Rules | `include/SemanticErrorHandler.h`, `src/SemanticErrorHandler.cpp` |
+| **PS/CSC/23/0293**(Cypher563k) | Mohammed Abdul Hamid | `phase3/0293-type-checker` | Expression Type Checking & Validation | `include/TypeCheckerExpr.h`, `src/TypeCheckerExpr.cpp` |
+| **PS/CSC/23/0294**(Jerryadongo) | Jeremiah Adongo Ayinbila | `phase3/0294-stmt-validator` | Statement & Control Flow Semantic Validation | `include/SemanticValidatorStmt.h`, `src/SemanticValidatorStmt.cpp` |
+| **PS/CSC/23/0295**(judahtawiah6-eng) | Judah Fiifi Tawiah | `phase3/0295-ir-model` | Three-Address Code Architecture & Temps | `include/IRInstruction.h`, `src/IRInstruction.cpp` |
+| **PS/CSC/23/0297**(bensonisaac001) | Isaac Seyram Benson | `phase3/0297-ir-expr` | Expression & Assignment IR Lowering | `include/IRGenExpr.h`, `src/IRGenExpr.cpp` |
+| **PS/CSC/23/0299**(kwekuandoh2610-collab) | Kweku Andoh | `phase3/0299-ir-control-flow`| Control Flow, Loops & Jump IR Lowering | `include/IRGenControlFlow.h`, `src/IRGenControlFlow.cpp` |
+| **PS/CSC/23/0301**(Abdul-Mujeeb1852) | Student 0301 | `phase3/0301-ir-coordinator` | IR Program Coordinator & Analyzer Pipeline | `include/IRProgram.h`, `src/IRProgram.cpp` |
+| **PS/CSC/23/0303**(CyberGhost500) | Jonathan Armah Mensah | `phase3/0303-tests-docs` | Phase 3 Test Suite, Samples & Docs | `tests/test_ir.cpp`, `examples/sample3_ir.min`, `examples/sample3_semantic_errors.min` |
 
 ---
 
